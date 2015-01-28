@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-from cs515lib import *
 
 def P(n) :
-	return P(n - 1) * ((365 - n) / 365)
-
+	if n <= 1 :
+		return 1
+	else :
+		return P(n - 1) * ((365 - (n - 1)) / 365.0)
+		
 def main() :
-	x = readInt()
-	print(x)
+	for x in range(1, 101) :
+		match = P(x)
+		result = round(1 - match, 4)
+		print(x, result)
+		
+main()
