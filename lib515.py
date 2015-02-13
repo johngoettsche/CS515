@@ -13,10 +13,12 @@ def zeros(x, y, value=0.0) :
 
 # print out a matrix
 def printMatrix(mat) :
-    for line in mat :
-        for item in line :
-            print("%6s "%item, end="")
-        print()
+	for line in mat :
+		for item in line :
+			#sys.stdout.write("%d", item)
+			print(str(item).rjust(6))
+			#print("\b" + str(len(line)))
+		#print()
 
 
 # returns tuple (location of maximum, maximum value)
