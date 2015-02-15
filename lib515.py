@@ -11,15 +11,15 @@ def zeros(x, y, value=0.0) :
     return l
 
 # print out a matrix
-<<<<<<< HEAD
-def printMatrix(mat) :
-	for line in mat :
-		for item in line :
-			#sys.stdout.write("%d", item)
-			print(str(item).rjust(6))
-			#print("\b" + str(len(line)))
-		#print()
-=======
+
+#def printMatrix(mat) :
+#	for line in mat :
+#		for item in line :
+#			#sys.stdout.write("%d", item)
+#			print(str(item).rjust(6))
+#			#print("\b" + str(len(line)))
+#		#print()
+
 def printMatrix(mat, symbol=None) :
     for line in mat :
         for item in line :
@@ -28,7 +28,6 @@ def printMatrix(mat, symbol=None) :
             else :
                 print("%6s "%symbol[item], end="")
         print()
->>>>>>> origin/master
 
 
 # returns tuple (location of maximum, maximum value)
