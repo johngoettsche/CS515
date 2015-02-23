@@ -10,16 +10,6 @@ def zeros(x, y, value=0.0) :
         l.append(y * [value])
     return l
 
-# print out a matrix
-
-#def printMatrix(mat) :
-#	for line in mat :
-#		for item in line :
-#			#sys.stdout.write("%d", item)
-#			print(str(item).rjust(6))
-#			#print("\b" + str(len(line)))
-#		#print()
-
 def printMatrix(mat, symbol=None) :
     for line in mat :
         for item in line :
