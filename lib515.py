@@ -43,6 +43,9 @@ def readStr() :
 
 def readNum() :
     return float(sys.stdin.readline().rstrip())
+	 
+def readInt() :
+    return int(sys.stdin.readline().rstrip())
 
 def readListStr() :
     return sys.stdin.readline().rstrip().split()

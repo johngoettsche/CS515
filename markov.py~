@@ -8,12 +8,10 @@ def main() :
 	parser.add_option("-n", "--number", dest="num", default="100", help="number")
 	parser.add_option("-s", "--spaces", dest="spaces", action="store_true", default=False, help="allow spaces")
 	(options, args) = parser.parse_args()
-		
+	
 	if len(args) != 1 :
 		parser.print_help()
 		exit(1)
-	alpha = options.alpha
-	num = int(options.num)
 	filename = args[0]
 	examplein = open(filename, "r")
 	example = examplein.read().lower()
@@ -25,14 +23,13 @@ def main() :
 		count1[i] = 0
 		for j in alpha :
 			count2[i+j] = 0
-	last = "^"
+	last = None
 	for c in example :
 		if c in alpha :
-			if last in alpha :
-				total += 1
-				count2[last+c] += 1
-			count1[c] +=1
-			last = c
+			total += 1
+			count2[last+c] += 1
+		count1[c] +=1
+		last = c
 		
 	for i in alpha :
 		for j in alpha :
@@ -43,6 +40,5 @@ def main() :
 		count1[i] /= total
 		
 	print(count1)
-	print(count2)
 	
 main()
