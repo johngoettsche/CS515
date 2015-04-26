@@ -36,11 +36,11 @@ def pickState(hmm, current) :
 			(p, state) = s
 			sum += p
 			if sum > ran :
-				return state
+				return (p, state)
 		print("Pick State Error")
 	else :
 		keys = list(hmm.keys())
-		return choice(keys)
+		return (1.0 / len(keys), choice(keys))
 	
 def pickItem(hmm, current) :
 	ran = random()
@@ -58,17 +58,19 @@ def makeStrings(hmm, init, num) :
 	states = ""
 	items = ""
 	P = 1.0
+	pState = 1.0
 	for x in range(num) :
-		if current != None :
+		if current != None : 
 			i = pickItem(hmm, current)
-		else :
-			current = pickState(hmm, current)
+		else : #in the event that the initial state is not defined
+			(pState, current) = pickState(hmm, current)
 			i = pickItem(hmm, current)
 		states += current
 		(p, item) = i
 		items += item
-		P *= p
-		current = pickState(hmm, current)
+		#P *= p * pState this is where it should go logically for the odds to get to this state and select this item
+		(pState, current) = pickState(hmm, current)
+		P *= p * pState #this is where it matches the calculations on the submission page
 	return (states, items, P)
 
 def main() :
